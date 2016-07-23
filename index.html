@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>Metro feria de flores</title>
+    <style>
+      html, body {        
+        margin: 0;
+        padding: 0;
+        background: #fffcf3;
+      }  
+    </style>
+    <link rel="stylesheet" href="css/ax-main.css">
+    <script async defer src="js/jquery-1.10.0.min.js"></script>
+</head>
+<body>
+    <select id="filterEvents">
+        <option value="todos">Todos</option>
+    </select>
+    <div class="contentPlaces" id="contentPlaces">
+        <div class="ax-miniEvent" data-index="1" data-filter="Inauguración oficial-Festival de Orquestas">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="2" data-filter="Festival de la trova">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="3" data-filter="Parque Cultural Nocturno">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>        
+        <div class="ax-miniEvent" data-index="4" data-filter="La feria a ritmo de bicicleta">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="5" data-filter="Desfile de Silleteritos">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="6" data-filter="Caminata canina y de mascotas">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="7" data-filter="Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="8" data-filter="Plaza de Flores. Muestra de cultura paisa con gastronomía, artesanía, música y juegos tradicionales">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="9" data-filter="Gospel Park">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="10" data-filter="Zona que Suena. Parque temático de naturaleza fantástica para los niños">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="11" data-filter="Desfile de autos clásicos y antiguos">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="12" data-filter="Desfile de Silleteros">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+        <div class="ax-miniEvent" data-index="13" data-filter="Orquídeas, Pájaros y Flores">
+            <span class="ax-event"></span><span class="ax-eventLines"></span>
+        </div>
+    </div>
+    <iframe width="400px" height="400px" src="https://maps.googleapis.com/maps/api/directions/json?origin=6.2208653,-75.5625077&destination=6.24499,-75.57738&departure_time=1343641500&mode=transit&key=AIzaSyBFuWPRMFiWRhQBW7VKAvWVgtMNPl4EVnY" frameborder="0"></iframe>
+    <div class="ax-modal">
+<!--        <div class="ax-content-modal">-->
+            <div class="ax-close-modal">X</div>
+            <div class="ax-detail-modal">
+                <div class="ax-detail-left">
+                    <div class="ax-mainEvent"></div>
+                </div>
+                <div class="ax-detail-right">
+                    
+                    <div id="map"></div>                    
+                </div>
+            </div>
+<!--        </div>-->
+    </div>
+    <!--<div id="map"></div>
+    <div class="data"></div>
+    <div onclick="initMap('6.2709888','-75.5652386')">Camino</div>-->
+    
+    <script async defer src="js/TweenMax.min.js"></script>
+    <script async defer src="js/ax-data.js"></script>
+    <script async defer src="js/ax-main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFuWPRMFiWRhQBW7VKAvWVgtMNPl4EVnY"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+.contentPlaces .ax-miniEvent{
+    position: relative;
+    display: inline-block;
+}
+.contentPlaces .ax-miniEvent span{
+    background-image: url(../img/ax-small.png);
+    display: inline-block;
+    cursor: pointer;
+    width: 225px;
+    height: 150px;    
+    opacity: 0;    
+}
+
+.contentPlaces .ax-miniEvent span:nth-child(1){
+    transform: scale(0.95);
+}
+.contentPlaces .ax-miniEvent span:nth-child(2){
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*COORDENADAS FULL IMAGE STEP 4*/
+.contentPlaces .ax-miniEvent:nth-child(1) span:nth-child(1){
+    background-position: 0 -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(2) span:nth-child(1){
+    background-position: -225px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(3) span:nth-child(1){
+    background-position: -450px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(4) span:nth-child(1){    
+    background-position: -675px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(5) span:nth-child(1){    
+    background-position: -900px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(6) span:nth-child(1){    
+    background-position: -1125px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(7) span:nth-child(1){    
+    background-position: -1350px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(8) span:nth-child(1){    
+    background-position: -1575px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(9) span:nth-child(1){    
+    background-position: -1800px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(10) span:nth-child(1){    
+    background-position: -2025px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(11) span:nth-child(1){    
+    background-position: -2250px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(12) span:nth-child(1){    
+    background-position: -2475px -450px;    
+}
+.contentPlaces .ax-miniEvent:nth-child(13) span:nth-child(1){    
+    background-position: -2700px -450px;    
+}
+
+
+/*COORDENADAS PARA LAS LINEAS*/
+.contentPlaces .ax-miniEvent:nth-child(1) span:nth-child(2){
+    background-position: 0 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(2) span:nth-child(2){
+    background-position: -225px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(3) span:nth-child(2){
+    background-position: -450px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(4) span:nth-child(2){    
+    background-position: -675px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(5) span:nth-child(2){    
+    background-position: -900px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(6) span:nth-child(2){    
+    background-position: -1125px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(7) span:nth-child(2){    
+    background-position: -1350px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(8) span:nth-child(2){    
+    background-position: -1575px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(9) span:nth-child(2){    
+    background-position: -1800px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(10) span:nth-child(2){    
+    background-position: -2025px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(11) span:nth-child(2){    
+    background-position: -2250px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(12) span:nth-child(2){    
+    background-position: -2475px 0;
+}
+.contentPlaces .ax-miniEvent:nth-child(13) span:nth-child(2){    
+    background-position: -2700px 0;
+}
+
+
+.ax-modal{
+    position: absolute;
+    background: #fff;
+    width:'100%';
+    height:'100%';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
+    display: none;
+/*    padding: 20px;*/
+}
+
+.ax-content-modal{
+    position: relative;    
+    border: solid 1px;    
+}
+.ax-close-modal:hover{
+    transform: rotate(180deg);
+}
+.ax-close-modal{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.ax-detail-left,.ax-detail-right{
+    display: inline-block;
+}
+
+#map{
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+}
+.ax-mainEvent{
+    background-image: url(../img/ax-large.png);
+    display: inline-block;
+    cursor: pointer;
+    width: 800px;
+    height: 533px;
+}
+.ax-mainEvent.ax-mainEvent1{
+    background-position: -0px -1599px;
+}
+.ax-mainEvent.ax-mainEvent2{
+    background-position: -800px -1599px;
+}
+.ax-mainEvent.ax-mainEvent3{
+    background-position: -1600px -1599px;
+}
+.ax-mainEvent.ax-mainEvent4{
+    background-position: -2400px -1599px;
+}
+.ax-mainEvent.ax-mainEvent5{
+    background-position: -3200px -1599px;
+}
+.ax-mainEvent.ax-mainEvent6{
+    background-position: -4000px -1599px;
+}
+.ax-mainEvent.ax-mainEvent7{
+    background-position: -4800px -1599px;
+}
+.ax-mainEvent.ax-mainEvent8{
+    background-position: -5600px -1599px;
+}
+.ax-mainEvent.ax-mainEvent9{
+    background-position: -6400px -1599px;
+}
+.ax-mainEvent.ax-mainEvent10{
+    background-position: -7200px -1599px;
+}
+.ax-mainEvent.ax-mainEvent11{
+    background-position: -8000px -1599px;
+}
+.ax-mainEvent.ax-mainEvent12{
+    background-position: -8800px -1599px;
+}
+.ax-mainEvent.ax-mainEvent13{
+    background-position: -9600px -1599px;
+}
