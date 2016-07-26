@@ -13,6 +13,24 @@
     </style>
     <link rel="stylesheet" href="css/ax-main.css">
     <script src="js/jquery-1.10.0.min.js"></script>
+<!--    <script src="js/ax-data.js"></script>-->
+
+<script type="text/javascript">
+    var gaq = gaq || [];
+    _gaq.push(['_setAccount', 'UA-8498906-1']);
+    _gaq.push(['_setDomainName', 'none']);
+    _gaq.push(['_setAllowHash', true]);
+
+
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
 </head>
 <body>
     <div class="ax-wrap">
@@ -35,7 +53,7 @@
        </div>
        
        <div class="contentPlaces" id="contentPlaces">
-           
+
             <div class="ax-group1">                
                 <div class="ax-miniEvent" data-index="10" data-filter="Zona que Suena. Parque temático de naturaleza fantástica para los niños">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
@@ -67,27 +85,26 @@
                 </div>
                 <div class="ax-circle"></div>
             </div>
-           <!--
-           <div class="ax-group4">               
+           
+            <div class="ax-group4">               
                 <div class="ax-miniEvent" data-index="3" data-filter="Parque Cultural Nocturno">
-                    <span class="ax-eventLines"></span><span class="ax-event"></span>
-                </div>
-                <div class="ax-miniEvent" data-index="7" data-filter="Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
                 <div class="ax-miniEvent" data-index="12" data-filter="Desfile de Silleteros">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
-                
+                <div class="ax-miniEvent" data-index="7" data-filter="Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
                 <div class="ax-circle"></div>
-           </div>
-           
-           
-           
-           
-            
-            
-            
+            </div>
+                        
+            <div class="ax-group7">                
+                <div class="ax-miniEvent" data-index="11" data-filter="Desfile de autos clásicos y antiguos">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-circle"></div>
+            </div> 
            
             <div class="ax-group5">
                 <div class="ax-miniEvent" data-index="1" data-filter="Inauguración oficial-Festival de Orquestas">
@@ -98,7 +115,7 @@
                 </div>
                 <div class="ax-circle"></div>
             </div>
-            
+
             <div class="ax-group6">
                 <div class="ax-miniEvent" data-index="5" data-filter="Desfile de Silleteritos">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
@@ -106,53 +123,44 @@
                 <div class="ax-circle"></div>
             </div>
             
-            <div class="ax-group7">                
-                <div class="ax-miniEvent" data-index="11" data-filter="Desfile de autos clásicos y antiguos">
-                    <span class="ax-eventLines"></span><span class="ax-event"></span>
-                </div>
-            </div> 
--->
-            
            <img src="img/ruta_metro.svg" alt="" class="ax-svg-ruta">           
         </div>        
-   </div>
-    <img src="img/ax-logo-metro.png" alt="Metro" class="ax-logo-metro">
+    </div>
+    <img src="img/ax-logo-metro.png" alt="Metro" class="ax-logo-metro">    
+    <img src="img/texture-home-flores-1.png" alt="Metro" class="ax-logo-flower1">
+    <img src="img/texture-home-flores-2.png" alt="Metro" class="ax-logo-flower2">
+    <img src="img/texture-home-flores-3.png" alt="Metro" class="ax-logo-flower3">
 
     <div class="ax-modal">
-<!--        <div class="ax-content-modal">-->
-            <div class="ax-close-modal">X</div>
-            <div class="ax-detail-modal">
-                <div class="ax-detail-left">
-                       <p class="ax-tittle"></p>
-                    <!-- <div class="ax-mainEvent"> -->
-                        <ul class="ax-mainEvent">
-                            <li class="ax-eventRow0"></li>
-                            <li class="ax-eventRow1"></li>
-                            <li class="ax-eventRow2"></li>
-                            <li class="ax-eventRow3"></li>
-                        </ul>
-                    <!-- </div> -->
-                </div>
-                <div class="ax-detail-right">
-                    <div class="ax-content-text">
+        <div class="ax-detail-modal">
+            <div class="ax-detail-left">
+                <p class="ax-tittle"></p>                
+                <ul class="ax-mainEvent">
+                    <li class="ax-eventRow0"></li>
+                    <li class="ax-eventRow1"></li>
+                    <li class="ax-eventRow2"></li>
+                    <li class="ax-eventRow3"></li>
+                </ul>                
+                <div class="ax-content-text">
+                    <div class="ax-grid-6 title">
                         <p><strong>Nombre evento: </strong><span class="ax-text-event"></span></p>
+                    </div>
+                    <div class="ax-grid-6">
                         <p><strong>Lugar: </strong><span class="ax-text-place"></span></p>
                         <p><strong>Fecha: </strong><span class="ax-text-date"></span></p>
                         <p><strong>Hora: </strong><span class="ax-text-hour"></span></p>
                     </div>
-                    <div id="map"></div>
                 </div>
             </div>
-<!--        </div>-->
+            <div class="ax-detail-right">
+                <div class="ax-cont-close"><div class="ax-close-modal"><img src="img/ax-close.png" alt=""></div></div>
+                <div id="map"></div>
+            </div>
+        </div>
     </div>
-    
-    
-    <!--<div id="map"></div>
-    <div class="data"></div>
-    <div onclick="initMap('6.2709888','-75.5652386')">Camino</div>-->
-    
+        
     <script src="js/TweenMax.min.js"></script>
-    <script src="js/ax-data.js"></script>
+    
     <script src="js/ax-main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFuWPRMFiWRhQBW7VKAvWVgtMNPl4EVnY"></script>
 </body>

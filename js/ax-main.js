@@ -2,30 +2,40 @@ var indexImage = "",
     images = ["img/ax-large.png"];
 //(function($){
     jQuery.noConflict();
-    jQuery(document).ready(function($){
+    jQuery(document).ready(function($){        
         initMap(event.lat,event.lng);
-        var events = $('.ax-miniEvent .ax-eventLines').sort(function() {return 0.5-Math.random()});
-        TweenMax.staggerTo(events,0.5,{scale:1,opacity:1, ease:Back.easeIn},0.1);
         
+        
+        $("body").animate({opacity:1},800);
+        
+        var events = $('.ax-miniEvent .ax-eventLines').sort(function() {return 0.5-Math.random()});
+        TweenMax.staggerTo(events,0.6,{scale:1,opacity:1, ease:Back.easeIn},0.15);
+
         TweenMax.staggerFrom('.ax-circle',0.7,{delay:0.5,scale:0, ease:Power2.easeOut},0.15);
         
         $(".ax-miniEvent").on('click',function(){
             indexImage = ($(this).data('index')) - 1;
             TweenLite.to('.ax-modal',0.7,{opacity:1,display:'block', ease:Power2.easeOut});
-            // $(".ax-mainEvent").addClass('ax-mainEvent'+indexImage);
+            $(".ax-mainEvent").addClass('ax-mainEvent'+indexImage);
             detailEvent(indexImage);
         });
         $(".ax-close-modal").on('click',function(){
             // TweenMax.staggerFrom('.ax-detail-right p',0.7,{y:-20,opacity:1, ease:Power2.easeIn, force3D:true},-0.1);
             TweenMax.to('.ax-modal',0.7,{delay:0.4,display:'none',opacity:0, ease:Power2.easeOut});
+            jQuery(".ax-eventRow1,.ax-eventRow2").removeAttr('style');
+            jQuery(".ax-eventRow3").removeClass('papadear');
             
-            TweenMax.to('.ax-mainEvent li',0,{opacity:0});
             setTimeout(function() {
                $(".ax-mainEvent").removeClass('ax-mainEvent'+indexImage);
             }, 1000);
+        });        
+    });
+    jQuery(window).load(function ($) {
+        var select = document.getElementById("filterEvents");        
+        var dataEvents = eventsData().sort(function(a, b) {
+          return compareStrings(a.event, b.event);
         });
         
-        var select = document.getElementById("filterEvents");    
         select.addEventListener("change", filter,false);
         
         for (var i = 0; i<dataEvents.length; i++){
@@ -34,8 +44,6 @@ var indexImage = "",
             opt.innerHTML = dataEvents[i].event;
             select.appendChild(opt);
         }
-    });
-    jQuery(window).load(function ($) {
         preload = function (imageArray, index) {
             index = index || 0; 
             if (imageArray && imageArray.length > index) { 
@@ -47,9 +55,16 @@ var indexImage = "",
     });    
 //})(jQuery);
 
+function compareStrings(a, b) {
+  // Assuming you want case-insensitive comparison
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+
+  return (a < b) ? -1 : (a > b) ? 1 : 0;
+}
 
 function detailEvent(i){
-    var event = dataEvents[i];
+    var event = eventsData()[i];//dataEvents[i];
     
     var eventName = document.getElementsByClassName('ax-text-event')[0],
         place = document.getElementsByClassName('ax-text-place')[0],
@@ -62,18 +77,17 @@ function detailEvent(i){
     date.innerHTML = event.date;
     hour.innerHTML = event.hour;
     
-
-    TweenMax.staggerFrom('.ax-detail-right p',0.5,{delay:0.2,y:15,opacity:0,ease:Power1.easeOut},0.15);
+    TweenMax.staggerFrom('.ax-detail-left .ax-grid-6 p',0.5,{delay:0.2,y:15,opacity:0,ease:Power1.easeOut},0.15);
     TweenMax.from(title,0.8,{delay:0.4,opacity:0,ease:Power1.easeOut,onComplete:initMap,onCompleteParams:[event.lat,event.lng]});
-//    TweenLite.from('.ax-mainEvent',0.7,{scale:1.1,delay:0.3,autoAlpha:0,ease:Power1.easeOut});
-//    TweenLite.from('#map',0.9,{delay:1,autoAlpha:0,ease:Power1.easeOut});
-        
-//    TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{delay:0.9,autoAlpha:1,backgroundPosition:'0 -533px',ease:Power1.easeOut});
-//    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{delay:1.1,autoAlpha:1,backgroundPosition:'0 -1066px',ease:Power1.easeOut});
-//    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{delay:1.3,autoAlpha:1,backgroundPosition:'0 -1599px',ease:Power1.easeOut});
     
-    //TweenLite.to('.ax-mainEvent li',0,{width:800});
-//    initMap(event.lat,event.lng);
+    var addParpadear = function(){
+        jQuery(".ax-eventRow3").removeAttr('style');
+        jQuery(".ax-eventRow3").addClass('papadear');
+    };
+    
+    TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{delay:0.8,autoAlpha:1});
+    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{delay:1,autoAlpha:1});
+    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{delay:1,autoAlpha:1,ease:Power1.easeIn,onComplete:addParpadear});    
 }
 
 function filter(){
@@ -173,4 +187,114 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     }else{
         alert('Lo sentimos tu navegador soporte la geolocalicación');
     }
+}
+
+function eventsData(){
+    var dataEvents = [
+    {
+        event:'Inauguración oficial-Festival de Orquestas',
+        date:'Julio 29',
+        hour:'6:00 p.m. a 1:00 a.m',
+        place:'Obelisco',
+        lat:6.2570995,
+        lng:-75.5943526
+    },
+    {
+        event:'Festival de la trova',
+        date:'Julio 29 a agosto 5',
+        hour:'6:00 p.m. a 1:00 a.m.',
+        place:'Parque Pies Descalzos',
+        lat:6.24499,
+        lng:-75.57738
+    },
+    {
+        event:'Parque Cultural Nocturno',
+        date:'Julio 31 a agosto 5',
+        hour:'6:00 p.m. a 1:00 a.m.',
+        place:'Plaza Gardel',
+        lat:6.2181482,
+        lng:-75.5869389
+    },
+    {
+        event:'La feria a ritmo de bicicleta',
+        date:'Julio 30',
+        hour:'2:00 p.m',
+        place:'Parque de las Luces',
+        lat:6.2458201,
+        lng:-75.5722863
+    },
+    {
+        event:'Desfile de Silleteritos',
+        date:'Julio 30',
+        hour:'Hora: 10:00 a.m. a 1:00 p.m.',
+        place:'Barrio La Floresta',
+        lat:6.257766,
+        lng:-75.598715
+    },
+    {
+        event:'Caminata canina y de mascotas',
+        date:'Julio 31',
+        hour:'8:00 a.m',
+        place:'Salida desde la estación Estadio',
+        lat:6.2531633,
+        lng:-75.588918
+    },
+    {
+        event:'Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical',
+        date:'julio 31 y agosto 1 al 5',
+        hour:'',
+        place:'Plaza Gardel',
+        lat:6.2181482,
+        lng:-75.5869389
+    },
+    {
+        event:'Plaza de Flores. Muestra de cultura paisa con gastronomía, artesanía, música y juegos tradicionales',
+        date:'Agosto 2 al 6',
+        hour:'Martes y miércoles: 12 m. a 10 p.m. Jueves y sábado de 12 m. a 12 p.m.',
+        place:'Contiguo al Mamm (estación Industriales)',
+        lat:6.2243422,
+        lng:-75.574462
+    },
+    {
+        event:'Gospel Park',
+        date:'Julio 31',
+        hour:'1:00 a 11:00 p. m.',
+        place:'Parque de los Deseos (Estación Universidad)',
+        lat:6.2686003,
+        lng:-75.5665116
+    },
+    {
+        event:'Zona que Suena. Parque temático de naturaleza fantástica para los niños',
+        date:'Julio 30 y 31',
+        hour:'11:00 a.m. a 6:00 p.m.',
+        place:'Parque Norte (Estación Universidad)',
+        lat:6.2727881,
+        lng:-75.5703963
+    },
+    {
+        event:'Desfile de autos clásicos y antiguos',
+        date:'Julio 29',
+        hour:'6:00 p.m. a 1:00 a.m',
+        place:'Salida de la sede del periódico El Colombiano',
+        lat:6.1776305,
+        lng:-75.591847
+    },
+    {
+        event:'Desfile de Silleteros',
+        date:'Agosto 7',
+        hour:'2:00 p.m.',
+        place:'Av. Guayabal-Calle 10- Plaza Gardel',
+        lat:6.2181482,
+        lng:-75.5869389
+    },
+    {
+        event:'Orquídeas, Pájaros y Flores',
+        date:'Agosto 3 al 7',
+        hour:'8:00 a. m. a 8:00 p. m',
+        place:'Jardín Botánico',
+        lat:6.2709888,
+        lng:-75.5652386
+    }
+]
+    return dataEvents;
 }
