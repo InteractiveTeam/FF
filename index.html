@@ -12,75 +12,148 @@
       }  
     </style>
     <link rel="stylesheet" href="css/ax-main.css">
-    <script async defer src="js/jquery-1.10.0.min.js"></script>
+    <script src="js/jquery-1.10.0.min.js"></script>
 </head>
 <body>
-    <select id="filterEvents">
-        <option value="todos">Todos</option>
-    </select>
-    <div class="contentPlaces" id="contentPlaces">
-        <div class="ax-miniEvent" data-index="1" data-filter="Inauguración oficial-Festival de Orquestas">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="2" data-filter="Festival de la trova">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="3" data-filter="Parque Cultural Nocturno">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
+    <div class="ax-wrap">
+        <div class="ax-head">
+            <div class="ax-logo-head">
+                <img src="img/logo.png" alt="El metro te lleva a la feria" title="El metro te lleva a la feria">
+            </div>
+            <div class="ax-description-head">
+                <p>La Feria de las Flores es una fiesta que llena la ciudad de color y diversión. Del 29 de julio al 7 de agosto,
+                Medellín gira entorno a esta celebración que cada año convoca a medellinenses y a turistas nacionales e internacionales
+                que no se quieren perder la alegría de la Feria. Estos son algunos de los eventos a los que prodá llegar a través del 
+                Sistema Metro.
+                </p>
+                <div class="select-wrapper">                    
+                    <select id="filterEvents">
+                       <option value="todos">Todos</option>
+                    </select>    
+                </div>
+            </div>            
+       </div>
+       
+       <div class="contentPlaces" id="contentPlaces">
+           
+            <div class="ax-group1">                
+                <div class="ax-miniEvent" data-index="10" data-filter="Zona que Suena. Parque temático de naturaleza fantástica para los niños">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-miniEvent" data-index="13" data-filter="Orquídeas, Pájaros y Flores">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-miniEvent" data-index="2" data-filter="Festival de la trova">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                
+                <div class="ax-miniEvent" data-index="9" data-filter="Gospel Park">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                
+                <div class="ax-circle"></div>
+            </div>
+            
+            <div class="ax-group2">
+                <div class="ax-miniEvent" data-index="4" data-filter="La feria a ritmo de bicicleta">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-circle"></div>
+            </div>
+            
+            <div class="ax-group3">
+                <div class="ax-miniEvent" data-index="8" data-filter="Plaza de Flores. Muestra de cultura paisa con gastronomía, artesanía, música y juegos tradicionales">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-circle"></div>
+            </div>
+           <!--
+           <div class="ax-group4">               
+                <div class="ax-miniEvent" data-index="3" data-filter="Parque Cultural Nocturno">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-miniEvent" data-index="7" data-filter="Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-miniEvent" data-index="12" data-filter="Desfile de Silleteros">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                
+                <div class="ax-circle"></div>
+           </div>
+           
+           
+           
+           
+            
+            
+            
+           
+            <div class="ax-group5">
+                <div class="ax-miniEvent" data-index="1" data-filter="Inauguración oficial-Festival de Orquestas">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-miniEvent" data-index="6" data-filter="Caminata canina y de mascotas">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-circle"></div>
+            </div>
+            
+            <div class="ax-group6">
+                <div class="ax-miniEvent" data-index="5" data-filter="Desfile de Silleteritos">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-circle"></div>
+            </div>
+            
+            <div class="ax-group7">                
+                <div class="ax-miniEvent" data-index="11" data-filter="Desfile de autos clásicos y antiguos">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+            </div> 
+-->
+            
+           <img src="img/ruta_metro.svg" alt="" class="ax-svg-ruta">           
         </div>        
-        <div class="ax-miniEvent" data-index="4" data-filter="La feria a ritmo de bicicleta">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="5" data-filter="Desfile de Silleteritos">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="6" data-filter="Caminata canina y de mascotas">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="7" data-filter="Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="8" data-filter="Plaza de Flores. Muestra de cultura paisa con gastronomía, artesanía, música y juegos tradicionales">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="9" data-filter="Gospel Park">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="10" data-filter="Zona que Suena. Parque temático de naturaleza fantástica para los niños">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="11" data-filter="Desfile de autos clásicos y antiguos">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="12" data-filter="Desfile de Silleteros">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-        <div class="ax-miniEvent" data-index="13" data-filter="Orquídeas, Pájaros y Flores">
-            <span class="ax-event"></span><span class="ax-eventLines"></span>
-        </div>
-    </div>
-    <iframe width="400px" height="400px" src="https://maps.googleapis.com/maps/api/directions/json?origin=6.2208653,-75.5625077&destination=6.24499,-75.57738&departure_time=1343641500&mode=transit&key=AIzaSyBFuWPRMFiWRhQBW7VKAvWVgtMNPl4EVnY" frameborder="0"></iframe>
+   </div>
+    <img src="img/ax-logo-metro.png" alt="Metro" class="ax-logo-metro">
+
     <div class="ax-modal">
 <!--        <div class="ax-content-modal">-->
             <div class="ax-close-modal">X</div>
             <div class="ax-detail-modal">
                 <div class="ax-detail-left">
-                    <div class="ax-mainEvent"></div>
+                       <p class="ax-tittle"></p>
+                    <!-- <div class="ax-mainEvent"> -->
+                        <ul class="ax-mainEvent">
+                            <li class="ax-eventRow0"></li>
+                            <li class="ax-eventRow1"></li>
+                            <li class="ax-eventRow2"></li>
+                            <li class="ax-eventRow3"></li>
+                        </ul>
+                    <!-- </div> -->
                 </div>
                 <div class="ax-detail-right">
-                    
-                    <div id="map"></div>                    
+                    <div class="ax-content-text">
+                        <p><strong>Nombre evento: </strong><span class="ax-text-event"></span></p>
+                        <p><strong>Lugar: </strong><span class="ax-text-place"></span></p>
+                        <p><strong>Fecha: </strong><span class="ax-text-date"></span></p>
+                        <p><strong>Hora: </strong><span class="ax-text-hour"></span></p>
+                    </div>
+                    <div id="map"></div>
                 </div>
             </div>
 <!--        </div>-->
     </div>
+    
+    
     <!--<div id="map"></div>
     <div class="data"></div>
     <div onclick="initMap('6.2709888','-75.5652386')">Camino</div>-->
     
-    <script async defer src="js/TweenMax.min.js"></script>
-    <script async defer src="js/ax-data.js"></script>
-    <script async defer src="js/ax-main.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFuWPRMFiWRhQBW7VKAvWVgtMNPl4EVnY"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/ax-data.js"></script>
+    <script src="js/ax-main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFuWPRMFiWRhQBW7VKAvWVgtMNPl4EVnY"></script>
 </body>
 </html>
