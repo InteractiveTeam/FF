@@ -15,21 +15,22 @@
     <script src="js/jquery-1.10.0.min.js"></script>
 <!--    <script src="js/ax-data.js"></script>-->
 
-<script type="text/javascript">
-    var gaq = gaq || [];
-    _gaq.push(['_setAccount', 'UA-8498906-1']);
-    _gaq.push(['_setDomainName', 'none']);
-    _gaq.push(['_setAllowHash', true]);
+<script type="text/javascript"> 
+	var _gaq = _gaq || []; 
+	_gaq.push(['_setAccount', 'UA-8498906-1']); 
+	_gaq.push(['_setDomainName', 'none']); 
+	_gaq.push(['_setAllowHash', true]); 
+	
+	
+	_gaq.push(['_trackPageview']); 
+	
+	(function() { 
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; 
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); 
+	})(); 
+	</script>
 
-
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-</script>
 
 </head>
 <body>
@@ -126,7 +127,9 @@
            <img src="img/ruta_metro.svg" alt="" class="ax-svg-ruta">           
         </div>        
     </div>
-    <img src="img/ax-logo-metro.png" alt="Metro" class="ax-logo-metro">    
+    <a href="https://www.metrodemedellin.gov.co">
+        <img src="img/ax-logo-metro.png" alt="Metro" class="ax-logo-metro">
+    </a>
     <img src="img/texture-home-flores-1.png" alt="Metro" class="ax-logo-flower1">
     <img src="img/texture-home-flores-2.png" alt="Metro" class="ax-logo-flower2">
     <img src="img/texture-home-flores-3.png" alt="Metro" class="ax-logo-flower3">

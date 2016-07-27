@@ -95,28 +95,31 @@ function filter(){
     var filter = jQuery(".ax-miniEvent").filter(function(i){
         var bandera = (jQuery(this).data('filter') === strSelect)?true:false;
         
-        if(jQuery(this).data('filter') === 'todos')
+        //if(jQuery(this).data('filter') === 'todos')
+        if(strSelect === 'todos'){            
             return jQuery(this)
-        else
+        }else{
             if(bandera) return jQuery(this)
+        }
     });
     
-    var filterSelection = function(data){        
+    var filterSelection = function(data){
         var filter = jQuery(".ax-miniEvent").filter(function(i){            
             if(jQuery(this).data('index') != data.data('index'))
-                return jQuery(this)            
-        });
-        console.log(filter);
-//        TweenMax.staggerTo(data.find('.ax-event'),0.7,{opacity:0},0.1);
-        TweenMax.staggerTo(filter.find('.ax-event'),0.7,{opacity:0},0.1);
+                return jQuery(this)
+        });        
+        TweenMax.to(filter.find('.ax-event'),0.3,{opacity:0,ease:Power1.easeOut});
     }
 
-    if(!filter.length){
-        TweenMax.staggerTo(".ax-eventLines",0.8,{opacity:1},0.1);
-//        TweenMax.staggerTo('.ax-miniEvent .ax-event',0.8,{opacity:0},0.1);
+    if(filter.length == 13){
+        var selectAll = function(filter){
+            TweenMax.staggerTo(filter.find(".ax-event"),0.3,{opacity:1,ease:Power1.easeOut},0.1);
+            TweenMax.staggerTo(filter.find(".ax-event"),0.3,{delay:0.7,opacity:0,ease:Power1.easeOut},0.1);
+        }
+        TweenMax.to('.ax-miniEvent .ax-event',0,{opacity:0,onComplete:selectAll,onCompleteParams:[filter]});        
     }else{
-//        TweenMax.staggerTo(".ax-miniEvent .ax-eventLines",0.8,{opacity:0},0.1);
-        TweenMax.staggerTo(filter.find('.ax-event'),0.8,{opacity:1,onComplete:filterSelection,onCompleteParams:[filter]},0.1);
+        //TweenMax.staggerTo(filter.find('.ax-event'),0.4,{opacity:1,onComplete:filterSelection,onCompleteParams:[filter]},0.1);
+        TweenMax.staggerTo(filter.find('.ax-event'),0.3,{opacity:1,onComplete:filterSelection,onCompleteParams:[filter]},0.1);
     }
 }
 
