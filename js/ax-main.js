@@ -1,5 +1,16 @@
 var indexImage = "",
-    images = ["img/ax-large.png"];
+    images = [
+        "img/ax-large.png",
+        "img/ax-close.png",
+        "img/ax-flores-1.png",
+        "img/ax-flores-2.png",        
+        "img/ax-logo-metro.png",
+        "img/ax-map.png",
+        "img/ax-small.png",
+        "img/background-text.png",
+        "img/texture-home-flores-3.png",
+        "img/texture-home-flores-1.png"
+    ];
 //(function($){
     jQuery.noConflict();
     jQuery(document).ready(function($){        
@@ -85,8 +96,10 @@ function detailEvent(i){
     };
     //
     TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{autoAlpha:1});
-    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{autoAlpha:1,onComplete:initMap,onCompleteParams:[event.lat,event.lng]});
-    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{autoAlpha:1,ease:Power1.easeIn,onComplete:addParpadear});    
+    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{autoAlpha:1});//,onComplete:initMap,onCompleteParams:[event.lat,event.lng]
+    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{autoAlpha:1,ease:Power1.easeIn,onComplete:addParpadear}); 
+    
+    initMap(event.lat,event.lng);
 }
 
 function filter(){
@@ -124,12 +137,8 @@ function filter(){
 
 function initMap(endLat,endLng) {
     // HTML5 geolocation.
-    var options = {
-      enableHighAccuracy: true,
-      timeout: 100,
-      maximumAge: 0
-    };
-    //if (navigator.geolocation) {
+    
+    if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
                 lat: 6.2208617,//position.coords.latitude,
@@ -183,12 +192,13 @@ function initMap(endLat,endLng) {
             });
         }, function() {
             //handleLocationError(true, infoWindow, map.getCenter());
-        },options);
-    //} else {
+            jQuery('.ax-message-map').css('display','block');
+        });
+    } else {
         // Browser doesn't support Geolocation
-        //alert('');
+        jQuery('.ax-message-map').css('display','block');
         //handleLocationError(false, infoWindow, map.getCenter());
-    //}
+    }
 }
 
 
@@ -258,7 +268,7 @@ function eventsData(){
     {
         event:'Parque cultural. Noches con lo mejor del bolero, la música afro, colombiana y tropical',
         date:'julio 31 y agosto 1 al 5',
-        hour:'',
+        hour:'N/A',
         place:'Plaza Gardel',
         lat:6.2181482,
         lng:-75.5869389
@@ -266,7 +276,7 @@ function eventsData(){
     {
         event:'Plaza de Flores. Muestra de cultura paisa con gastronomía, artesanía, música y juegos tradicionales',
         date:'Agosto 2 al 6',
-        hour:'Martes y miércoles: 12 m. a 10 p.m. Jueves y sábado de 12 m. a 12 p.m.',
+        hour:'Martes y miércoles: 12 m. a 10 p.m. <br>Jueves y sábado de 12 m. a 12 p.m.',
         place:'Contiguo al Mamm (estación Industriales)',
         lat:6.2243422,
         lng:-75.574462

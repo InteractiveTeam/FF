@@ -674,10 +674,11 @@ select{
     background: url(../img/background-text.png) top;
     background-size: 100% 100%;
     bottom: 0;
-    width: 80.4%;
-    padding: 50px 10%;
+    width: 101%;
+    padding: 50px 0;
     font-size: 0;
     position: absolute;
+    text-align: center
 }
 
 .ax-detail-left .ax-content-text p {
@@ -690,15 +691,10 @@ select{
 
 .ax-detail-left .ax-content-text .ax-grid-6 {
     display: inline-block;
-    font-size: 0;
-    width: 35%;
+    font-size: 0;   
     vertical-align: middle;
-    margin-left: 5%;
-}
-
-.ax-detail-left .ax-content-text .ax-grid-6:first-child {
-    width: 60%;
-    margin-left: 0;
+    margin-left: 3%;
+    text-align: left;
 }
 
 .ax-detail-left .ax-content-text .title p {
@@ -847,14 +843,8 @@ select{
     .ax-detail-left .ax-content-text .title p {
         font-size: 1.6rem;
     }
-    
-    .ax-detail-left .ax-content-text .ax-grid-6 {
-        width: 45%;
-    }
-    
-    .ax-detail-left .ax-content-text .ax-grid-6:first-child {
-        width: 50%;
-    }
+        
+        
     /*imagen 1*/
     
     .ax-detail-left ul.ax-mainEvent.ax-mainEvent0 {
@@ -1168,6 +1158,7 @@ select{
         top: auto !important;
         left: auto !important;
         right: auto !important;
+        vertical-align: bottom !important;
     }
     
     .contentPlaces div.ax-miniEvent
@@ -1177,10 +1168,9 @@ select{
     
     .contentPlaces div.ax-group
     {
-            display: block;
-            text-align: center;
-            border-bottom: 1px dashed #705f34;
-            padding: 1.5em;
+    display: inline-block;
+    text-align: center;
+    padding: .5em 0;
     }
     .contentPlaces .ax-miniEvent span
     {
@@ -1188,9 +1178,8 @@ select{
     }
     
     .ax-logo-metro {
-        position: initial;
-        margin-left: 2%;
-        margin-top: 2%;
+       top: 2%;
+        left: 2%;
     }
     
     .ax-description-head p{
@@ -1202,10 +1191,16 @@ select{
         height: auto;
         background: url(../img/background-map.png) no-repeat center top;
         background-size: cover;
+        padding: 0 8%;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        padding-bottom: 10em;
     }
     .ax-wrap
     {
         background: none;
+        position: initial;
     }
     .ax-detail-left {
         height: 60%;
@@ -1218,7 +1213,7 @@ select{
         margin-top: -1em;
     }
     
-    .ax-svg-ruta
+    .ax-svg-ruta, .ax-logo-flower1, .ax-logo-flower2
     {
         display: none;
     }
@@ -1373,10 +1368,9 @@ select{
         width: 100%;
         margin: 0;
     }    
-    .ax-detail-left .ax-content-text {
-        width: 90.7%;
-        padding: 50px 5%;        
+    .ax-detail-left .ax-content-text {           
         background-size: 250% 120%;
+        text-align: left;
     }    
     .ax-detail-left .ax-mainEvent {
         height: 390px;
