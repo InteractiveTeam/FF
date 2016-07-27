@@ -25,14 +25,17 @@ var indexImage = "",
         
         $(".ax-miniEvent").on('click',function(){
             indexImage = ($(this).data('index')) - 1;
+            $(".ax-mainEvent").addClass('ax-mainEvent' + indexImage);
             
-            $('.ax-modal').css({'z-index':10}).animate({opacity:1},700,function(){                
-                $(".ax-mainEvent").addClass('ax-mainEvent'+indexImage);
-                detailEvent(indexImage);
-                
-            });
+            $('.ax-modal').css({'z-index':10,opacity:1});
+            detailEvent(indexImage);
+            
+            //$('.ax-modal').css({'z-index':10}).animate({opacity:1},700,function(){                
+                //detailEvent(indexImage);                
+            //});
             //TweenLite.to('.ax-modal',0.7,{css:{'z-index':10,opacity:1}, ease:Power2.easeOut});            
         });
+        
         $(".ax-close-modal").on('click',function(){            
             //TweenMax.to('.ax-modal',0.7,{css:{'z-index':-3,opacity:0}, ease:Power2.easeOut});
             $('.ax-modal').animate({opacity:0},700,function(){
@@ -92,14 +95,17 @@ function detailEvent(i){
     date.innerHTML = event.date;
     hour.innerHTML = event.hour;
     
+    //
+    
+    //jQuery(".ax-eventRow3").addClass('papadear');
+    
     var addParpadear = function(){  
-        jQuery(".ax-eventRow3").removeAttr('style');
-        jQuery(".ax-eventRow3").addClass('papadear');
-        initMap(event.lat,event.lng);
+//        jQuery(".ax-eventRow3").removeAttr('style');
+        jQuery(".ax-eventRow3").addClass('papadear');        
     };
     
-    
     jQuery(title).animate({opacity:1},700,function(){
+        initMap(event.lat,event.lng);
         addParpadear();
     });
     
@@ -152,8 +158,8 @@ function initMap(endLat,endLng) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
-                lat: 6.2208617,//position.coords.latitude,
-                lng: -75.5610245//position.coords.longitude
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
             };
 
             var coords = new google.maps.LatLng(pos.lat, pos.lng);
