@@ -13,9 +13,8 @@ var indexImage = "",
     ];
 //(function($){
     jQuery.noConflict();
-    jQuery(document).ready(function($){        
-        initMap(event.lat,event.lng);
-        
+    jQuery(document).ready(function($){
+        initMap(6.2709888,-75.5652386);
         
         $("body").animate({opacity:1},800);
         
@@ -26,19 +25,26 @@ var indexImage = "",
         
         $(".ax-miniEvent").on('click',function(){
             indexImage = ($(this).data('index')) - 1;
-            TweenLite.to('.ax-modal',0.7,{opacity:1,display:'block', ease:Power2.easeOut});
-            $(".ax-mainEvent").addClass('ax-mainEvent'+indexImage);
-            detailEvent(indexImage);
+            
+            $('.ax-modal').css({'z-index':10}).animate({opacity:1},700,function(){                
+                $(".ax-mainEvent").addClass('ax-mainEvent'+indexImage);
+                detailEvent(indexImage);
+                
+            });
+            //TweenLite.to('.ax-modal',0.7,{css:{'z-index':10,opacity:1}, ease:Power2.easeOut});            
         });
-        $(".ax-close-modal").on('click',function(){
-            // TweenMax.staggerFrom('.ax-detail-right p',0.7,{y:-20,opacity:1, ease:Power2.easeIn, force3D:true},-0.1);
-            TweenMax.to('.ax-modal',0.7,{delay:0.4,display:'none',opacity:0, ease:Power2.easeOut});
+        $(".ax-close-modal").on('click',function(){            
+            //TweenMax.to('.ax-modal',0.7,{css:{'z-index':-3,opacity:0}, ease:Power2.easeOut});
+            $('.ax-modal').animate({opacity:0},700,function(){
+                $(this).css({'z-index':-3});
+                $(".ax-mainEvent").removeClass('ax-mainEvent'+indexImage);
+            })
             jQuery(".ax-eventRow1,.ax-eventRow2").removeAttr('style');
             jQuery(".ax-eventRow3").removeClass('papadear');
             
-            setTimeout(function() {
-               $(".ax-mainEvent").removeClass('ax-mainEvent'+indexImage);
-            }, 1000);
+//            setTimeout(function() {
+//               $(".ax-mainEvent").removeClass('ax-mainEvent'+indexImage);
+//            }, 1000);
         });        
     });
     jQuery(window).load(function ($) {
@@ -82,24 +88,29 @@ function detailEvent(i){
         hour = document.getElementsByClassName('ax-text-hour')[0],
         title = document.getElementsByClassName('ax-tittle')[0];
     title.innerHTML = event.event;
-//    eventName.innerHTML = event.event;
     place.innerHTML = event.place;
     date.innerHTML = event.date;
     hour.innerHTML = event.hour;
     
-    TweenMax.staggerFrom('.ax-detail-left .ax-grid-6 p',0.5,{delay:0.2,y:15,opacity:0,ease:Power1.easeOut},0.15);
-    TweenLite.from(title,0.8,{opacity:0,ease:Power1.easeOut});
-    
-    var addParpadear = function(){
+    var addParpadear = function(){  
         jQuery(".ax-eventRow3").removeAttr('style');
         jQuery(".ax-eventRow3").addClass('papadear');
+        initMap(event.lat,event.lng);
     };
-    //
-    TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{autoAlpha:1});
-    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{autoAlpha:1});//,onComplete:initMap,onCompleteParams:[event.lat,event.lng]
-    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{autoAlpha:1,ease:Power1.easeIn,onComplete:addParpadear}); 
     
-    initMap(event.lat,event.lng);
+    
+    jQuery(title).animate({opacity:1},700,function(){
+        addParpadear();
+    });
+    
+    //TweenMax.staggerFrom('.ax-detail-left .ax-grid-6 p',0.4,{y:15,opacity:0,ease:Power1.easeOut},0.14);    
+    //TweenLite.from(title,0.8,{opacity:0,ease:Power1.easeOut,onComplete:addParpadear},'-=0.16');
+    
+    
+    
+//    TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{autoAlpha:1},'-=0.3');
+//    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{autoAlpha:1},'-=0.3');//,onComplete:initMap,onCompleteParams:[event.lat,event.lng]
+//    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{autoAlpha:1,ease:Power1.easeIn},'-=0.16');     
 }
 
 function filter(){
@@ -185,7 +196,6 @@ function initMap(endLat,endLng) {
                     var distance  = response.routes[0].legs[0].distance.text;
                     var duration  = response.routes[0].legs[0].duration.text;
 
-                    console.log(response.routes[0]);
                     jQuery(".ax-text-duration").html(duration.replace('hour','hora'));
                     jQuery(".ax-text-distance").html(distance);
                 }
