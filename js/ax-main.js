@@ -66,28 +66,27 @@ function compareStrings(a, b) {
 function detailEvent(i){
     var event = eventsData()[i];//dataEvents[i];
     
-    var eventName = document.getElementsByClassName('ax-text-event')[0],
-        place = document.getElementsByClassName('ax-text-place')[0],
+    var place = document.getElementsByClassName('ax-text-place')[0],
         date = document.getElementsByClassName('ax-text-date')[0],
         hour = document.getElementsByClassName('ax-text-hour')[0],
         title = document.getElementsByClassName('ax-tittle')[0];
     title.innerHTML = event.event;
-    eventName.innerHTML = event.event;
+//    eventName.innerHTML = event.event;
     place.innerHTML = event.place;
     date.innerHTML = event.date;
     hour.innerHTML = event.hour;
     
     TweenMax.staggerFrom('.ax-detail-left .ax-grid-6 p',0.5,{delay:0.2,y:15,opacity:0,ease:Power1.easeOut},0.15);
-    TweenMax.from(title,0.8,{delay:0.4,opacity:0,ease:Power1.easeOut,onComplete:initMap,onCompleteParams:[event.lat,event.lng]});
+    TweenLite.from(title,0.8,{opacity:0,ease:Power1.easeOut});
     
     var addParpadear = function(){
         jQuery(".ax-eventRow3").removeAttr('style');
         jQuery(".ax-eventRow3").addClass('papadear');
     };
-    
-    TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{delay:0.8,autoAlpha:1});
-    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{delay:1,autoAlpha:1});
-    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{delay:1,autoAlpha:1,ease:Power1.easeIn,onComplete:addParpadear});    
+    //
+    TweenLite.to('.ax-mainEvent .ax-eventRow1',0.7,{autoAlpha:1});
+    TweenLite.to('.ax-mainEvent .ax-eventRow2',0.7,{autoAlpha:1,onComplete:initMap,onCompleteParams:[event.lat,event.lng]});
+    TweenLite.to('.ax-mainEvent .ax-eventRow3',0.7,{autoAlpha:1,ease:Power1.easeIn,onComplete:addParpadear});    
 }
 
 function filter(){
@@ -125,7 +124,12 @@ function filter(){
 
 function initMap(endLat,endLng) {
     // HTML5 geolocation.
-    if (navigator.geolocation) {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 100,
+      maximumAge: 0
+    };
+    //if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
                 lat: 6.2208617,//position.coords.latitude,
@@ -167,20 +171,24 @@ function initMap(endLat,endLng) {
                     directionsDisplay.setMap(map);
                                         
                     directionsDisplay.setDirections(response);
-                                        
+                    
+                    //duration
                     var distance  = response.routes[0].legs[0].distance.text;
                     var duration  = response.routes[0].legs[0].duration.text;
 
-                    //$(".data").html('<p> Distancia => '+distance+'</p><br><p> Duration => '+duration+'</p>');
+                    console.log(response.routes[0]);
+                    jQuery(".ax-text-duration").html(duration.replace('hour','hora'));
+                    jQuery(".ax-text-distance").html(distance);
                 }
             });
         }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
+            //handleLocationError(true, infoWindow, map.getCenter());
+        },options);
+    //} else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
+        //alert('');
+        //handleLocationError(false, infoWindow, map.getCenter());
+    //}
 }
 
 
@@ -190,6 +198,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     }else{
         alert('Lo sentimos tu navegador soporte la geolocalicación');
     }
+}
+
+function enableUbi(){
+    var data = eventsData()[indexImage];
+    initMap(data.lat,data.lng);
 }
 
 function eventsData(){

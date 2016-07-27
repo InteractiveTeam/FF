@@ -55,7 +55,7 @@
        
        <div class="contentPlaces" id="contentPlaces">
 
-            <div class="ax-group1">                
+            <div class="ax-group1 ax-group">                
                 <div class="ax-miniEvent" data-index="10" data-filter="Zona que Suena. Parque temático de naturaleza fantástica para los niños">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
@@ -73,21 +73,31 @@
                 <div class="ax-circle"></div>
             </div>
             
-            <div class="ax-group2">
+            <div class="ax-group2 ax-group">
                 <div class="ax-miniEvent" data-index="4" data-filter="La feria a ritmo de bicicleta">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
                 <div class="ax-circle"></div>
             </div>
             
-            <div class="ax-group3">
+            <div class="ax-group3 ax-group">
                 <div class="ax-miniEvent" data-index="8" data-filter="Plaza de Flores. Muestra de cultura paisa con gastronomía, artesanía, música y juegos tradicionales">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
                 <div class="ax-circle"></div>
             </div>
+            
+            <div class="ax-group5 ax-group">
+                <div class="ax-miniEvent" data-index="1" data-filter="Inauguración oficial-Festival de Orquestas">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-miniEvent" data-index="6" data-filter="Caminata canina y de mascotas">
+                    <span class="ax-eventLines"></span><span class="ax-event"></span>
+                </div>
+                <div class="ax-circle"></div>
+            </div>
            
-            <div class="ax-group4">               
+            <div class="ax-group4 ax-group">               
                 <div class="ax-miniEvent" data-index="3" data-filter="Parque Cultural Nocturno">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
@@ -100,30 +110,20 @@
                 <div class="ax-circle"></div>
             </div>
                         
-            <div class="ax-group7">                
+            <div class="ax-group7 ax-group">                
                 <div class="ax-miniEvent" data-index="11" data-filter="Desfile de autos clásicos y antiguos">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
                 <div class="ax-circle"></div>
             </div> 
            
-            <div class="ax-group5">
-                <div class="ax-miniEvent" data-index="1" data-filter="Inauguración oficial-Festival de Orquestas">
-                    <span class="ax-eventLines"></span><span class="ax-event"></span>
-                </div>
-                <div class="ax-miniEvent" data-index="6" data-filter="Caminata canina y de mascotas">
-                    <span class="ax-eventLines"></span><span class="ax-event"></span>
-                </div>
-                <div class="ax-circle"></div>
-            </div>
-
-            <div class="ax-group6">
+           <div class="ax-group6 ax-group">
                 <div class="ax-miniEvent" data-index="5" data-filter="Desfile de Silleteritos">
                     <span class="ax-eventLines"></span><span class="ax-event"></span>
                 </div>
                 <div class="ax-circle"></div>
             </div>
-            
+                       
            <img src="img/ruta_metro.svg" alt="" class="ax-svg-ruta">           
         </div>        
     </div>
@@ -146,9 +146,13 @@
                 </ul>                
                 <div class="ax-content-text">
                     <div class="ax-grid-6 title">
-                        <p><strong>Nombre evento: </strong><span class="ax-text-event"></span></p>
+<!--                       <p><strong>Nombre evento: </strong><span class="ax-text-event"></span></p>-->
+                        <p><strong>Tiempo: </strong><span class="ax-text-duration"></span></p>
+                        <p><strong>Distancia: </strong><span class="ax-text-distance"></span></p>
                     </div>
                     <div class="ax-grid-6">
+                        
+                        
                         <p><strong>Lugar: </strong><span class="ax-text-place"></span></p>
                         <p><strong>Fecha: </strong><span class="ax-text-date"></span></p>
                         <p><strong>Hora: </strong><span class="ax-text-hour"></span></p>
@@ -158,6 +162,7 @@
             <div class="ax-detail-right">
                 <div class="ax-cont-close"><div class="ax-close-modal"><img src="img/ax-close.png" alt=""></div></div>
                 <div id="map"></div>
+                <div class="ax-message-map" onclick="enableUbi()">Habilitar ubicación</div>
             </div>
         </div>
     </div>

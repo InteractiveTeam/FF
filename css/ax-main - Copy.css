@@ -63,7 +63,6 @@ body{
     font-family: 'DIN-Light';
     margin: 0;
     padding-bottom: 1.2em;
-    font-weight: bold;
 }
 
 select{
@@ -80,8 +79,6 @@ select{
     appearance: none;
     background: transparent;
     border-radius: 0;
-    font-family: 'DIN-Light';
-    background: #fff;
 }
 
 .select-wrapper{
@@ -134,27 +131,6 @@ select{
     position: relative;
     display: inline-block;
     vertical-align: top;
-}
-
-.ax-message-map
-{
-    font-family: 'beyond';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 9em;
-    height: 1.7em;
-    background: brown;
-    padding: 10px;
-    text-align: center;
-    color: #fff;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
 }
 
 .ax-group1 .ax-miniEvent[data-index="10"]{
@@ -505,8 +481,8 @@ select{
 
 .ax-logo-metro{
     position: absolute;
-    bottom: 3%;
-    right: 1%;
+    bottom: 30px;
+    right: 10px;
 }
 
 .ax-logo-flower1{
@@ -576,6 +552,8 @@ select{
     vertical-align: top;
 }
 .ax-detail-right p{
+    /*opacity: 0;*/
+    /*transform: translateY(30px);*/
     margin: 2px 0;
     font-family: 'DIN-Light';
 }
@@ -636,7 +614,7 @@ select{
 }
 
 .ax-detail-right {
-    width: 39.99%;
+    width: 40%;
     height: 100%;
     position: relative;
 }
@@ -656,17 +634,11 @@ select{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .ax-detail-left .ax-tittle {
     width: 80%;
-    margin: 5% auto 0 auto;
+    margin: 30px auto 0 auto;
     font-size: 2.4em;
 }
 
@@ -706,6 +678,18 @@ select{
 }
 
 .ax-detail-left .ax-content-text p strong {
+    font-family: 'DIN-medium';
+}
+
+.ax-message-map{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 22%;
+    height: 0;
     font-family: 'DIN-medium';
 }
 
@@ -1160,68 +1144,6 @@ select{
     .ax-detail-left .ax-mainEvent.ax-mainEvent9 li:nth-child(4) {
         background-position: -5210px -2731px;
     }
-    
-    .contentPlaces div {
-        position: initial !important;
-        width: auto !important;
-        height: auto !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-    }
-    
-    .contentPlaces div.ax-miniEvent
-    {
-        position: relative !important;
-    }
-    
-    .contentPlaces div.ax-group
-    {
-            display: block;
-            text-align: center;
-            border-bottom: 1px dashed #705f34;
-            padding: 1.5em;
-    }
-    .contentPlaces .ax-miniEvent span
-    {
-        height: 120px;
-    }
-    
-    .ax-logo-metro {
-        position: initial;
-        margin-left: 2%;
-        margin-top: 2%;
-    }
-    
-    .ax-description-head p{
-        margin-top: 2em;    
-    }
-    
-    .contentPlaces
-    {
-        height: auto;
-        background: url(../img/background-map.png) no-repeat center top;
-        background-size: cover;
-    }
-    .ax-wrap
-    {
-        background: none;
-    }
-    .ax-detail-left {
-        height: 60%;
-    }
-    .ax-detail-left ul.ax-mainEvent.ax-mainEvent
-    {
-        margin: auto !important;
-    }
-    .ax-detail-right {        
-        margin-top: -1em;
-    }
-    
-    .ax-svg-ruta
-    {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1279,16 +1201,6 @@ select{
 }
 
 @media screen and (max-width: 568px) {
-    .ax-detail-left
-    {
-        height: 100% !important;
-    }
-    
-    .ax-logo-head img {
-        display: block;
-        margin: auto;
-        width: 55%;
-    }
     .ax-group1{
         width: 99%;
         height: auto;
@@ -1375,7 +1287,8 @@ select{
     }    
     .ax-detail-left .ax-content-text {
         width: 90.7%;
-        padding: 50px 5%;        
+        padding: 50px 5%;
+        position: initial;
         background-size: 250% 120%;
     }    
     .ax-detail-left .ax-mainEvent {
@@ -1948,16 +1861,16 @@ select{
     height: 324px;
 }
 .ax-mainEvent.ax-mainEvent4 li:nth-child(1){
-    background-position: -3393px -214px;
+    background-position: 33.99% -214px;
 }
 .ax-mainEvent.ax-mainEvent4 li:nth-child(2){
-    background-position: -3393px -747px;
+    background-position: 33.99% -747px;
 }
 .ax-mainEvent.ax-mainEvent4 li:nth-child(3){
-    background-position: -3393px -1280px;
+    background-position: 33.99% -1280px;
 }
 .ax-mainEvent.ax-mainEvent4 li:nth-child(4){
-    background-position: -3393px -1813px;
+    background-position: 33.99% -1813px;
 }
 
 /*
